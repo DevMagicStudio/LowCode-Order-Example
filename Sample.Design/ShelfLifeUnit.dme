@@ -1,0 +1,25 @@
+{
+  "Name": "ShelfLifeUnit",
+  "Type": "General",
+  "Version": 26,
+  "DisplayName": "ShelfLifeUnit",
+  "Description": "ShelfLifeUnit",
+  "DesignVersion": "1.0.0",
+  "Fields": {
+    "Year": {
+      "Value": "0",
+      "Description": "",
+      "DisplayName": "Year(s)"
+    },
+    "Month": {
+      "Value": "1",
+      "Description": "",
+      "DisplayName": "Month(s)"
+    },
+    "Day": {
+      "Value": "2",
+      "Description": "",
+      "DisplayName": "Day(s)"
+    }
+  }
+}

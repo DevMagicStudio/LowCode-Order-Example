@@ -1,0 +1,30 @@
+{
+  "Name": "PaymentType",
+  "Type": "General",
+  "Version": 32,
+  "DisplayName": "PaymentType",
+  "Description": "PaymentType",
+  "DesignVersion": "1.0.0",
+  "Fields": {
+    "Cash": {
+      "Value": "0",
+      "Description": "",
+      "DisplayName": "Cash"
+    },
+    "BankCard": {
+      "Value": "1",
+      "Description": "",
+      "DisplayName": "Bank Card"
+    },
+    "WeChat": {
+      "Value": "2",
+      "Description": "",
+      "DisplayName": "WeChat"
+    },
+    "Alipay": {
+      "Value": "3",
+      "Description": "",
+      "DisplayName": "Alipay"
+    }
+  }
+}

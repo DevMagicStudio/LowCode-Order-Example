@@ -1,0 +1,249 @@
+{
+  "Name": "Product",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "Product",
+  "Description": "Product",
+  "DesignVersion": "1.0.0",
+  "BaseType": "EntityBase",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "IsDeletable": true,
+  "View:IsQueryable": true,
+  "View:IsInsertable": true,
+  "View:IsUpdatable": true,
+  "View:IsDetailable": true,
+  "Fields": {
+    "ProductNo": {
+      "DataType": "String",
+      "Type": "Compute",
+      "DisplayName": "Product No",
+      "Description": "Product No",
+      "ComputeValue": "'P'||Substr('0000'||ID,-4,4)",
+      "ComputeType": "SQL",
+      "IsQueryable": true,
+      "View:IsQueryable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductName": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "Product Name",
+      "Description": "Product Name",
+      "MaxLength": 20,
+      "IsRequired": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductImage": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "Product Image",
+      "IsNullable": true,
+      "MaxLength": 200,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true,
+      "DisplayType": "Image"
+    },
+    "Manufacturer": {
+      "DataType": "Manufacturer",
+      "Type": "Model",
+      "DisplayName": "Manufacturer",
+      "DisplayField": "CompanyName",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductSpecify": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "Product Specify",
+      "MaxLength": 50,
+      "Description": "产品规格",
+      "IsNullable": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductBatch": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "Product Batch",
+      "Description": "产品批次",
+      "IsRequired": true,
+      "MinLength": 2,
+      "MaxLength": 20,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductPrice": {
+      "DataType": "Decimal",
+      "Type": "Decimal",
+      "DisplayName": "Product Price",
+      "IsRequired": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ProductDate": {
+      "DataType": "DateTime",
+      "Type": "DateTime",
+      "DisplayName": "Product Date",
+      "Description": "生成日期",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ShelfLife": {
+      "DataType": "Int32",
+      "Type": "Int32",
+      "DisplayName": "Shelf Life",
+      "Description": "保质期",
+      "DefaultValue": "30",
+      "DefaultValueType": "Value",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ShelfLifeUnit": {
+      "DataType": "ShelfLifeUnit",
+      "Type": "Enum",
+      "DisplayName": "ShelfLifeUnit",
+      "DefaultValueType": "Expression",
+      "DefaultValue": "ShelfLifeUnit.Day ",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "IsExpired": {
+      "DataType": "Boolean",
+      "Type": "Boolean",
+      "DisplayName": "IsExpired",
+      "DefaultValue": "false",
+      "DefaultValueType": "Value",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true,
+      "DisplayType": "Switch"
+    }
+  },
+  "ORMTargets": {
+    "EFCore6": {
+      "Fields": {
+        "Manufacturer": {
+          "DeleteBehavior": "NoAction"
+        },
+        "ProductPrice": {
+          "Precision": 14,
+          "Scale": 2
+        }
+      }
+    }
+  },
+  "ViewTargets": {},
+  "Conditions": {
+    "ProdcutFilter": {
+      "DisplayName": "ProdcutFilter",
+      "Description": "",
+      "Items": {
+        "Expired": {
+          "DisplayName": "Expired",
+          "Relation": "None",
+          "Type": "Field",
+          "Field": "Product.IsExpired",
+          "Operation": "EQ"
+        },
+        "KeyWord": {
+          "DisplayName": "KeyWord",
+          "Description": "ProdcutName || Prodcut specify",
+          "Relation": "AND",
+          "Type": "Matches",
+          "DataType": "String",
+          "Matches": [
+            {
+              "Relation": "None",
+              "Type": "Field",
+              "Field": "Product.ProductName",
+              "Operation": "CONTAIN"
+            },
+            {
+              "Relation": "OR",
+              "Type": "Field",
+              "Field": "Product.ProductSpecify",
+              "Operation": "EQ"
+            }
+          ],
+          "Operation": "EQ"
+        }
+      }
+    }
+  },
+  "InheritFields": {
+    "ID": {},
+    "InsertTime": {
+      "View:IsDetailable": true
+    },
+    "UpdateTime": {
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    }
+  },
+  "APIs": {
+    "Basic:Get": "True",
+    "Basic:GetList": "True",
+    "Basic:GetPage": "True",
+    "Basic:Create": "True",
+    "Basic:Update": "True",
+    "Basic:Delete": "True",
+    "Condition:ProdcutFilter:GetPage": "True"
+  },
+  "References": {
+    "EntityBase": "EntityBase.dmedm",
+    "Manufacturer": "Manufacturer.dmedm",
+    "ShelfLifeUnit": "ShelfLifeUnit.dme"
+  }
+}

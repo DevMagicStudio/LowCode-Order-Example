@@ -1,0 +1,141 @@
+{
+  "Name": "Order",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "Order",
+  "Description": "Order",
+  "DesignVersion": "1.0.0",
+  "BaseType": "EntityBase",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "IsDeletable": true,
+  "View:IsQueryable": true,
+  "View:IsInsertable": true,
+  "View:IsUpdatable": true,
+  "View:IsDetailable": true,
+  "QueryCondition": "PayType",
+  "Fields": {
+    "Orderid": {
+      "DataType": "String",
+      "Type": "Compute",
+      "DisplayName": "Orderid",
+      "ComputeValue": "\"O-\"+Year(Now()) + \"\"+ Month(Now())+ Day(Now()) +'-'+ Order.ID ",
+      "ComputeType": "Expression",
+      "IsQueryable": true,
+      "View:IsQueryable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true,
+      "IsReadOnly:Update": true
+    },
+    "OrderItems": {
+      "DataType": "OrderItem",
+      "Type": "Model",
+      "DisplayName": "OrderItems",
+      "DisplayField": "Quantity",
+      "IsCascadeUpdate": true,
+      "IsCollection": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "OrderAmount": {
+      "DataType": "Decimal",
+      "Type": "Compute",
+      "DisplayName": "OrderAmount",
+      "ComputeValue": "Sum(Order.OrderItems.Amount) ",
+      "ComputeType": "Expression",
+      "IsQueryable": true,
+      "View:IsQueryable": true,
+      "IsReadOnly:Update": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Purchaser": {
+      "DataType": "Consumer",
+      "Type": "Model",
+      "DisplayName": "Purchaser",
+      "DisplayField": "Name",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "PaymentType": {
+      "DataType": "PaymentType",
+      "Type": "Enum",
+      "DisplayName": "PaymentType",
+      "DefaultValue": "PaymentType.Cash",
+      "DefaultValueType": "Value",
+      "IsRequired": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    }
+  },
+  "ORMTargets": {
+    "EFCore6": {
+      "Fields": {
+        "Purchaser": {
+          "InverseProperty": "Orders"
+        }
+      }
+    }
+  },
+  "ViewTargets": {},
+  "Conditions": {
+    "PayType": {
+      "DisplayName": "PayType",
+      "Description": "",
+      "Items": {
+        "PaymentType": {
+          "DisplayName": "PaymentType",
+          "Relation": "None",
+          "Type": "Field",
+          "Field": "Order.PaymentType",
+          "Operation": "EQ"
+        },
+        "Year": {
+          "DisplayName": "Year",
+          "Relation": "AND",
+          "Type": "Expression",
+          "DataType": "Int32",
+          "Expression": "Year(Order.InsertTime) ",
+          "Operation": "EQ"
+        }
+      }
+    }
+  },
+  "InheritFields": {
+    "ID": {},
+    "InsertTime": {
+      "View:IsQueryable": true
+    },
+    "UpdateTime": {}
+  },
+  "APIs": {
+    "Basic:Get": "True",
+    "Basic:GetList": "True",
+    "Basic:GetPage": "True",
+    "Basic:Create": "True",
+    "Basic:Update": "True",
+    "Basic:Delete": "True",
+    "Condition:PayType:GetPage": "True"
+  },
+  "References": {
+    "EntityBase": "EntityBase.dmedm",
+    "OrderItem": "OrderItem.dmedm",
+    "Consumer": "Consumer.dmedm",
+    "PaymentType": "PaymentType.dme"
+  }
+}

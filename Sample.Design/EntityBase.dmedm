@@ -1,0 +1,51 @@
+{
+  "Name": "EntityBase",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "EntityBase",
+  "Description": "EntityBase",
+  "DesignVersion": "1.0.0",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "Fields": {
+    "ID": {
+      "Type": "Int32",
+      "DataType": "Int32",
+      "DisplayName": "ID",
+      "Description": "Auto ID",
+      "IsQueryable": true
+    },
+    "InsertTime": {
+      "DataType": "DateTime",
+      "Type": "DateTime",
+      "DisplayName": "InsertTime",
+      "IsQueryable": true,
+      "DefaultValue": "Now() ",
+      "DefaultValueType": "Expression"
+    },
+    "UpdateTime": {
+      "DataType": "DateTime",
+      "Type": "DateTime",
+      "DisplayName": "UpdateTime",
+      "IsUpdatable": true,
+      "DefaultValue": "Now() ",
+      "DefaultValueType": "Expression",
+      "IsQueryable": true
+    }
+  },
+  "ORMTargets": {
+    "EFCore6": {
+      "Fields": {
+        "ID": {
+          "IsKey": true
+        }
+      }
+    }
+  },
+  "ViewTargets": {},
+  "Conditions": {},
+  "InheritFields": {},
+  "APIs": {},
+  "References": {}
+}

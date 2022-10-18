@@ -1,0 +1,120 @@
+{
+  "TargetDirectory": "..\\..\\Sample",
+  "RootNamespace": "Sample",
+  "Server": {
+    "Target": "EFCore6",
+    "TemplateGroup": "efcore6",
+    "Items": [
+      {
+        "IsChecked": true,
+        "Name": "basic",
+        "Template": "basic",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Common"
+      },
+      {
+        "IsChecked": true,
+        "Name": "enum",
+        "Template": "enum",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Services\\Enums"
+      },
+      {
+        "IsChecked": true,
+        "Name": "model",
+        "Template": "model",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Services\\Models"
+      },
+      {
+        "IsChecked": true,
+        "Name": "datacontext",
+        "Template": "efcoredbcontext",
+        "NameRule": "",
+        "TargetDirectory": "Sample.EFCore"
+      },
+      {
+        "Name": "injectdatacontext",
+        "Template": "efcoreinjectdbcontext",
+        "NameRule": "",
+        "TargetDirectory": "Sample.EFCore"
+      },
+      {
+        "IsChecked": true,
+        "Name": "service",
+        "Template": "efcoreservice",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Services\\Services"
+      },
+      {
+        "IsChecked": true,
+        "Name": "injectservice",
+        "Template": "efcoreinjectservice",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Services"
+      },
+      {
+        "IsChecked": true,
+        "Name": "controller",
+        "Template": "controller",
+        "NameRule": "",
+        "TargetDirectory": "Sample.WebApi\\Controllers"
+      },
+      {
+        "IsChecked": true,
+        "Name": "authentication",
+        "Template": "efcoreauthentication",
+        "NameRule": "",
+        "TargetDirectory": "Sample.WebApi"
+      }
+    ]
+  },
+  "Client": {
+    "Target": "Vue3",
+    "TemplateGroup": "vue",
+    "Items": [
+      {
+        "IsChecked": true,
+        "Name": "viewenum",
+        "Template": "vueenum",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\types\\modules"
+      },
+      {
+        "IsChecked": true,
+        "Name": "viewtype",
+        "Template": "vuetype",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\types\\modules"
+      },
+      {
+        "IsChecked": true,
+        "Name": "viewapi",
+        "Template": "vueapi",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\api\\modules"
+      },
+      {
+        "IsChecked": true,
+        "Name": "entitypage",
+        "Template": "vueentitypage",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\views"
+      },
+      {
+        "IsChecked": true,
+        "Name": "modelpage",
+        "Template": "vuemodelpage",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\views"
+      },
+      {
+        "IsChecked": true,
+        "Name": "viewrouter",
+        "Template": "vuerouter",
+        "NameRule": "",
+        "TargetDirectory": "Sample.Client\\src\\router\\routes\\modules"
+      }
+    ]
+  }
+}

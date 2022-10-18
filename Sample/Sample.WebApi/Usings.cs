@@ -1,0 +1,10 @@
+global using System.ComponentModel.DataAnnotations;
+global using System.IdentityModel.Tokens.Jwt;
+global using System.Security.Claims;
+global using System.Text.Json.Serialization;
+global using Sample;
+global using Microsoft.AspNetCore.Authentication.JwtBearer;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.IdentityModel.Logging;
+global using Microsoft.IdentityModel.Tokens;

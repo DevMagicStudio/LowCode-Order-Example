@@ -1,0 +1,121 @@
+{
+  "Name": "Consumer",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "Consumer",
+  "Description": "Consumer",
+  "DesignVersion": "1.0.0",
+  "BaseType": "EntityBase",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "View:IsQueryable": true,
+  "View:IsInsertable": true,
+  "View:IsUpdatable": true,
+  "View:IsDetailable": true,
+  "QueryCondition": "NameOrTelephone",
+  "Fields": {
+    "ConsumerNo": {
+      "DataType": "Guid",
+      "Type": "Guid",
+      "DisplayName": "ConsumerNo",
+      "IsQueryable": true,
+      "View:IsQueryable": true,
+      "View:IsDetailable": true,
+      "IsUpdatable": true,
+      "View:IsUpdatable": true,
+      "IsReadOnly:Update": true,
+      "DefaultValue": "NewGuid() ",
+      "DefaultValueType": "Expression"
+    },
+    "Name": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "Name",
+      "View:IsQueryable": true,
+      "MinLength": 2,
+      "MaxLength": 20,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Telephone": {
+      "DataType": "String",
+      "Type": "PhoneNumber",
+      "DisplayName": "Telephone",
+      "RegularExpression": "^(\\+|00)[0-9]{1,4}[ ,-]?[0-9]{4,14}(?:x.+)?$",
+      "RegularExpressionError": "The Phone format is incorrect.",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Orders": {
+      "DataType": "Order",
+      "Type": "Model",
+      "DisplayName": "Orders",
+      "DisplayField": "Orderid",
+      "IsCollection": true
+    }
+  },
+  "ORMTargets": {
+    "EFCore6": {
+      "Fields": {
+        "Telephone": {
+          "IsIndex": true,
+          "IsUnique": true
+        },
+        "Orders": {
+          "DeleteBehavior": "Cascade"
+        }
+      }
+    }
+  },
+  "ViewTargets": {},
+  "Conditions": {
+    "NameOrTelephone": {
+      "DisplayName": "NameOrTelephone",
+      "Description": "",
+      "Items": {
+        "Name": {
+          "DisplayName": "Name",
+          "Relation": "None",
+          "Type": "Field",
+          "Field": "Consumer.Name",
+          "Operation": "EQ"
+        },
+        "Phone": {
+          "DisplayName": "Phone",
+          "Description": "End of Phone",
+          "Relation": "OR",
+          "Type": "Field",
+          "Field": "Consumer.Telephone",
+          "Operation": "ENDSWITH"
+        }
+      }
+    }
+  },
+  "InheritFields": {
+    "ID": {},
+    "InsertTime": {},
+    "UpdateTime": {}
+  },
+  "APIs": {
+    "Basic:Get": "True",
+    "Basic:GetList": "True",
+    "Basic:GetPage": "True",
+    "Basic:Create": "True",
+    "Basic:Update": "True",
+    "Condition:NameOrTelephone:GetPage": "True"
+  },
+  "References": {
+    "EntityBase": "EntityBase.dmedm",
+    "Order": "Order.dmedm"
+  }
+}

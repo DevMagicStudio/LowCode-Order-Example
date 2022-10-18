@@ -1,0 +1,63 @@
+{
+  "Name": "OrderReport",
+  "Type": "Model",
+  "Version": 1,
+  "DisplayName": "OrderReport",
+  "Description": "OrderReport",
+  "DesignVersion": "1.0.0",
+  "IsQueryable": true,
+  "View:IsQueryable": true,
+  "View:IsDetailable": true,
+  "QueryCondition": "MonthReport",
+  "Fields": {
+    "OrderAmount": {
+      "DataType": "Decimal",
+      "Type": "Decimal",
+      "DisplayName": "OrderAmount",
+      "OutputValueType": "Expression",
+      "OutputValue": "Sum(Order.OrderAmount) ",
+      "IsQueryable": true,
+      "View:IsQueryable": true,
+      "View:IsDetailable": true
+    }
+  },
+  "ORMTargets": {},
+  "ViewTargets": {},
+  "Conditions": {
+    "MonthReport": {
+      "DisplayName": "MonthReport",
+      "Description": "",
+      "Items": {
+        "Year": {
+          "DisplayName": "Year",
+          "Relation": "None",
+          "Type": "Expression",
+          "DataType": "Int32",
+          "Expression": "Year(Order.InsertTime) ",
+          "Operation": "EQ",
+          "DefaultValue": "2022",
+          "IsRequired": true
+        },
+        "Month": {
+          "DisplayName": "Month",
+          "Relation": "AND",
+          "Type": "Expression",
+          "DataType": "Int32",
+          "Expression": "Month(Order.InsertTime) ",
+          "Operation": "EQ",
+          "IsRequired": true
+        }
+      }
+    }
+  },
+  "InheritFields": {},
+  "APIs": {
+    "Basic:Get": "True",
+    "Basic:GetList": "True",
+    "Basic:GetPage": "True",
+    "Condition:MonthReport:Get": "True"
+  },
+  "References": {
+    "Order": "Order.dmedm"
+  }
+}

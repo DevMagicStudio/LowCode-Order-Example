@@ -1,0 +1,84 @@
+{
+  "Name": "Manufacturer",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "Manufacturer",
+  "Description": "Manufacturer",
+  "DesignVersion": "1.0.0",
+  "BaseType": "EntityBase",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "IsDeletable": true,
+  "View:IsQueryable": true,
+  "View:IsInsertable": true,
+  "View:IsUpdatable": true,
+  "View:IsDetailable": true,
+  "Fields": {
+    "CompanyName": {
+      "DataType": "String",
+      "Type": "String",
+      "DisplayName": "CompanyName",
+      "MinLength": 2,
+      "MaxLength": 100,
+      "IsRequired": true,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "ContactNumber": {
+      "DataType": "String",
+      "Type": "PhoneNumber",
+      "DisplayName": "Contact Number",
+      "RegularExpression": "^(\\+|00)[0-9]{1,4}[ ,-]?[0-9]{4,14}(?:x.+)?$",
+      "RegularExpressionError": "The Phone format is incorrect.",
+      "MinLength": 2,
+      "MaxLength": 20,
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsQueryable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Products": {
+      "DataType": "Product",
+      "Type": "Model",
+      "DisplayName": "Products",
+      "DisplayField": "ProductNo",
+      "IsCollection": true
+    }
+  },
+  "ORMTargets": {},
+  "ViewTargets": {},
+  "Conditions": {},
+  "InheritFields": {
+    "ID": {
+      "View:IsQueryable": true,
+      "View:IsDetailable": true
+    },
+    "InsertTime": {
+      "View:IsDetailable": true
+    },
+    "UpdateTime": {
+      "View:IsDetailable": true
+    }
+  },
+  "APIs": {
+    "Basic:Get": "True",
+    "Basic:GetList": "True",
+    "Basic:GetPage": "True",
+    "Basic:Create": "True",
+    "Basic:Update": "True",
+    "Basic:Delete": "True"
+  },
+  "References": {
+    "EntityBase": "EntityBase.dmedm",
+    "Product": "Product.dmedm"
+  }
+}

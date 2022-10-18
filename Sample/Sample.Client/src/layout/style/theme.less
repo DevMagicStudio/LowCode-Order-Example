@@ -1,0 +1,307 @@
+/**
+*******************header theme******************
+*/
+
+/* breadcrumb theme */
+.breadcrumb-light {
+  .ant-breadcrumb-link {
+    a {
+      color: @breadcrumb-item-normal-color;
+
+      &:hover {
+        color: @button-primary-color;
+      }
+    }
+
+    span {
+      color: rgb(0 0 0 / 65%);
+    }
+  }
+
+  :deep(.ant-breadcrumb-separator),
+  :deep(.anticon) {
+    color: @breadcrumb-item-normal-color;
+  }
+}
+
+.breadcrumb-unLight {
+  :deep(.ant-dropdown-open) {
+    color: #999 !important;
+  }
+
+  .ant-breadcrumb-link {
+    color: rgb(255 255 255 / 60%);
+
+    a {
+      color: @white;
+
+      &:hover {
+        color: @button-primary-color;
+      }
+    }
+
+    span {
+      color: rgb(255 255 255 / 80%);
+    }
+  }
+
+  :deep(.ant-breadcrumb-separator),
+  :deep(.anticon) {
+    color: rgb(255 255 255 / 65%);
+  }
+}
+
+/* headerAction theme */
+.header-action-light {
+  color: @black;
+}
+
+.header-action-unLight {
+  color: @white;
+}
+
+/* logo theme */
+.logo-light {
+  color: #0960bd;
+}
+
+.logo-unLight {
+  color: @white;
+}
+
+/* header theme */
+.header-menu-light {
+  color: #000;
+
+  :deep(.ant-menu-item) {
+    a {
+      color: #000 !important;
+    }
+
+    &-selected,
+    &-active {
+      color: @white-bg-font-color !important;
+
+      a {
+        color: @white-bg-font-color !important;
+      }
+
+      &::after {
+        border-bottom: 2px solid @white-bg-font-color !important;
+      }
+    }
+  }
+
+  :deep(.ant-menu-submenu) {
+
+    &-title {
+      &:hover {
+        color: @white-bg-font-color !important;
+      }
+
+      .anticon {
+        &:hover {
+          color: @white-bg-font-color;
+        }
+      }
+    }
+
+    &-active,
+    &-open,
+    &-selected {
+      color: @white-bg-font-color !important;
+
+      &::after {
+        border-bottom: 2px solid @white-bg-font-color !important;
+      }
+    }
+  }
+}
+
+.header-menu-unLight {
+  color: rgb(255 255 255 / 65%);
+
+  :deep(.ant-menu-item) {
+    a {
+      color: rgb(255 255 255 / 65%) !important;
+    }
+
+    &:hover,
+    &-selected {
+      color: @white !important;
+      background-color: @top-menu-active-bg-color;
+
+      a {
+        color: @white !important;
+      }
+
+      &::after {
+        border-bottom: 0 !important;
+      }
+    }
+
+    &::after {
+      border-bottom: 0 !important;
+    }
+  }
+
+  :deep(.ant-menu-submenu) {
+
+    &-title {
+      &:hover {
+        color: @white !important;
+      }
+    }
+
+    &-active,
+    &-open,
+    &-selected {
+      background-color: @top-menu-active-bg-color;
+
+      span {
+        color: @white;
+      }
+
+      &::after {
+        border-bottom: 0 !important;
+      }
+    }
+
+    &::after {
+      border-bottom: 0 !important;
+    }
+  }
+}
+
+/**
+*******************sider theme******************
+*/
+.ant-menu.menu-light {
+  color: #000 !important;
+  background-color: @sider-dark-bg-color !important;
+
+  :deep(.ant-menu-submenu-arrow) {
+    &::after,
+    &::before {
+      background: #000;
+    }
+  }
+
+  :deep(.ant-menu-item) {
+    color: #000;
+
+    a {
+      color: #000;
+    }
+
+    &:hover,
+    &-active {
+      color: @button-primary-color;
+
+      a {
+        color: @button-primary-color;
+      }
+    }
+
+    &-selected {
+      color: @white !important;
+
+      a {
+        color: @white !important;
+      }
+    }
+  }
+
+  :deep(.ant-menu-submenu) {
+    &-title:hover,
+    &-open,
+    &-active,
+    &-selected {
+      color: @button-primary-color !important;
+
+      span {
+        &:hover {
+          color: @button-primary-color;
+        }
+      }
+
+      .ant-menu-submenu-arrow {
+        &::after,
+        &::before {
+          background: @button-primary-color;
+        }
+      }
+    }
+
+    .ant-menu {
+      background-color: @white;
+
+      .ant-menu-item {
+        color: #000;
+
+        &-selected {
+          a {
+            color: @white !important;
+          }
+        }
+      }
+
+      .ant-menu-submenu {
+        color: #000;
+
+        .ant-menu-submenu-arrow {
+          &::after,
+          &::before {
+            background: #000;
+          }
+        }
+
+        &:hover,
+        &-selected,
+        &-active,
+        &-open {
+          color: @button-primary-color;
+
+          .ant-menu-submenu-arrow {
+            &::after,
+            &::before {
+              background: @button-primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.menu-unLight {
+  background-color: @sider-dark-bg-color !important;
+
+  :deep(.ant-menu-submenu-inline) {
+    &-title:hover,
+    &-selected,
+    &-open {
+      color: @white;
+    }
+
+    .ant-menu {
+      background: @sider-dark-darken-bg-color !important;
+
+      .ant-menu-submenu {
+        &-title:hover,
+        &-selected,
+        &-open {
+
+          .ant-menu-submenu-arrow {
+            opacity: 1 !important;
+
+            &::after,
+            &::before {
+              background: @white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

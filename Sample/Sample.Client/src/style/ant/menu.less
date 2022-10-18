@@ -1,0 +1,112 @@
+
+.ant-menu-submenu-popup {
+  .ant-menu.ant-menu-sub {
+    color: @menu-font-color;
+    background-color: @sider-dark-bg-color!important;
+    .ant-menu-item {
+      // For hover inherit
+      color: @menu-font-color;
+      a {
+        color: @menu-font-color!important
+      }
+      .ant-menu-title-content {
+        a {
+          &:hover {
+          color: @sider-select-color!important
+        }
+        }
+      }
+    }
+    .ant-menu-item-selected {
+      background-color: @sider-select-color!important;
+      .ant-menu-title-content {
+        a {
+          &:hover {
+          color:@header-text-color!important
+        }
+        }
+      }
+    }
+    .ant-menu-submenu-selected {
+      .ant-menu-title-content {
+        color: @sider-select-color!important
+      }
+    }
+    .ant-menu-submenu.ant-menu-submenu-vertical {
+      .ant-menu-submenu-title {
+        &:hover {
+          color: @sider-select-color!important;
+         span {
+          color: @sider-select-color
+         }
+        }
+        .ant-menu-title-content {
+          color: @menu-font-color;
+        }
+        .ant-menu-submenu-arrow {
+          color: @header-text-color ;
+        }
+      }
+    }
+  }
+}
+
+.ant-menu-dark .ant-menu-item{
+  &:hover {
+    color: @sider-select-color!important; 
+  }
+  a:hover {
+    color: @sider-select-color!important; 
+  }
+}
+
+html[data-theme="dark"] {
+.ant-menu-vertical.ant-menu-sub .ant-menu-item:hover {
+    color: @sider-select-color !important;
+}
+
+.ant-menu-title-content {
+  a {
+    &:hover {
+    color: @sider-select-color!important
+    }
+  }
+}
+.ant-menu-item-selected {
+  .ant-menu-title-content {
+    a {
+      &:hover {
+      color:@header-text-color!important
+    }
+    }
+  }
+}
+.ant-menu-submenu {
+  .ant-menu-submenu-active.ant-menu-submenu-open {
+    color: @sider-select-color!important
+  }
+}
+}
+
+.ant-menu-inline-collapsed-tooltip {
+  .ant-tooltip-content {
+    .ant-tooltip-inner {
+      a {
+        color: white;
+      }
+    }
+  }
+}
+
+.ant-dropdown-menu {
+  .ant-dropdown-menu-item {
+    .ant-dropdown-menu-title-content {
+      a {
+        color:@header-text-color!important
+      }
+      .router-link-active {
+        color:@sider-select-color!important
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "Name": "OrderItem",
+  "Type": "Entity",
+  "Version": 1,
+  "DisplayName": "OrderItem",
+  "Description": "OrderItem",
+  "DesignVersion": "1.0.0",
+  "BaseType": "EntityBase",
+  "IsQueryable": true,
+  "IsInsertable": true,
+  "IsUpdatable": true,
+  "View:IsInsertable": true,
+  "View:IsUpdatable": true,
+  "View:IsDetailable": true,
+  "Fields": {
+    "Product": {
+      "DataType": "Product",
+      "Type": "Model",
+      "DisplayName": "Product",
+      "DisplayField": "ProductName",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Quantity": {
+      "DataType": "Int32",
+      "Type": "Int32",
+      "DisplayName": "Quantity",
+      "IsRequired": true,
+      "DefaultValue": "1",
+      "DefaultValueType": "Value",
+      "IsQueryable": true,
+      "IsInsertable": true,
+      "IsUpdatable": true,
+      "View:IsInsertable": true,
+      "View:IsUpdatable": true,
+      "View:IsDetailable": true
+    },
+    "Amount": {
+      "DataType": "Decimal",
+      "Type": "Compute",
+      "DisplayName": "Amount",
+      "ComputeValue": "OrderItem.Product.ProductPrice * OrderItem.Quantity ",
+      "ComputeType": "Expression",
+      "IsQueryable": true,
+      "View:IsDetailable": true
+    }
+  },
+  "ORMTargets": {
+    "EFCore6": {
+      "Fields": {
+        "Product": {
+          "IsRequired": true
+        }
+      }
+    }
+  },
+  "ViewTargets": {},
+  "Conditions": {},
+  "InheritFields": {
+    "ID": {},
+    "InsertTime": {},
+    "UpdateTime": {}
+  },
+  "APIs": {},
+  "References": {
+    "EntityBase": "EntityBase.dmedm",
+    "Product": "Product.dmedm"
+  }
+}
