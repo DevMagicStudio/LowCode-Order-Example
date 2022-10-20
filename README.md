@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This tutorial uses a sample sales application to explain how you develop applications with the low-code approach in DevMagic Studio. Please get the sample sales application from this link: ###
+This tutorial uses a sample sales application to explain how you develop applications with the low-code approach in DevMagic Studio. Please get the sample sales application at this repository.
 
 The application has a basic setup of two companies, two users, and four products.  When the application is run, it allows you to perform the following operations:
 
